@@ -1,14 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2024-07-16 21:38:58
- * @LastEditTime: 2024-07-16 22:06:04
+ * @LastEditTime: 2024-07-17 19:51:15
  * @LastEditors: momo.local
  * @Description: In User Settings Edit
  * @FilePath: /KOB/web/src/components/GameMap.vue
 -->
 <template>
     <div ref="parent" class="gamemap">
-        <canvas ref="canvas"></canvas>
+        <canvas ref="canvas" tabindex="0"></canvas>
     </div>
 </template>
 
