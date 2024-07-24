@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2024-07-16 21:25:26
- * @LastEditTime: 2024-07-17 20:34:47
+ * @LastEditTime: 2024-07-23 19:29:54
  * @LastEditors: momo.local
  * @Description: In User Settings Edit
  * @FilePath: /KOB/web/src/assets/scripts/GameMap.js
@@ -21,7 +21,7 @@ export class GameMap extends AcGameObject {
         this.rows = 13;
         this.cols = 14;
         
-        this.inner_walls_count = 20;
+        this.inner_walls_count = 50;
         this.walls = [];
 
         this.snakes = [

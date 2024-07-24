@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2024-07-23 00:05:55
- * @LastEditTime: 2024-07-23 01:06:34
+ * @LastEditTime: 2024-07-23 20:36:36
  * @LastEditors: momo.local
  * @Description: In User Settings Edit
  * @FilePath: /web/src/store/user.js
@@ -16,6 +16,7 @@ export default{
         photo: "",
         token: "",
         is_login: false,
+        pulling_info: true,
     },
     getters: {
     },
@@ -36,6 +37,9 @@ export default{
             state.photo = '';
             state.token = '';
             state.is_login = false;
+        },
+        updatePullingInfo(state, pulling_info){
+            state.pulling_info = pulling_info;
         }
     },
     //in action call the function from mutation need to use commit;
@@ -50,6 +54,7 @@ export default{
                 }, 
                 success (resp) {
                     if(resp.error_message === "success"){
+                        localStorage.setItem("jwt_token", resp.token);
                         context.commit("updateToken", resp.token);
                         data.success(resp);
                     } else{
@@ -84,6 +89,7 @@ export default{
               });
         },
         logout(context){
+            localStorage.removeItem("jwt_token");
             context.commit("logout");
         }
 

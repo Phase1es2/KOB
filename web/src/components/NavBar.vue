@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2024-07-16 19:13:07
- * @LastEditTime: 2024-07-23 01:08:27
+ * @LastEditTime: 2024-07-23 20:42:23
  * @LastEditors: momo.local
  * @Description: In User Settings Edit
  * @FilePath: /KOB/web/src/components/NavBar.vue
@@ -42,7 +42,7 @@
                         </ul>
                     </li>
                 </ul>
-                <ul class="navbar-nav" v-else>
+                <ul class="navbar-nav" v-else-if="!$store.state.user.pulling_info">
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{name: 'user_account_login'}" role="button">Login
                             </router-link>

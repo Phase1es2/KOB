@@ -1,13 +1,13 @@
 <!--
  * @Author: your name
  * @Date: 2024-07-22 23:43:30
- * @LastEditTime: 2024-07-23 00:47:02
+ * @LastEditTime: 2024-07-23 20:40:39
  * @LastEditors: momo.local
  * @Description: In User Settings Edit
  * @FilePath: /web/src/views/user/account/UserAccountLoginView.vue
 -->
 <template>
-    <ContentField>
+    <ContentField v-if="!$store.state.user.pulling_info">
       <div class="row justify-content-md-center">
         <div class="col-3">
           <form @submit.prevent="login">
@@ -43,6 +43,23 @@
       const password = ref('');
       const error_message = ref('');
   
+      const jwt_token = localStorage.getItem("jwt_token");
+      if(jwt_token){
+        store.commit("updateToken", jwt_token);
+        store.dispatch("getinfo",{
+            success(){
+                router.push({name: "home"});
+                store.commit("updatePullingInfo", false);
+            },
+            error(){
+                store.commit("updatePullingInfo", false);
+            },
+        })
+      }else{
+        store.commit("updatePullingInfo", false);
+      }
+
+
       const login = () => {
         error_message.value = "";
         store.dispatch("login", {
@@ -68,7 +85,7 @@
         username,
         password,
         error_message,
-        login
+        login,
       };
     }
   }
