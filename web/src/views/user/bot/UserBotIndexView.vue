@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2024-07-16 19:52:27
- * @LastEditTime: 2024-07-24 09:29:22
+ * @LastEditTime: 2024-07-24 20:11:08
  * @LastEditors: momo.local
  * @Description: In User Settings Edit
  * @FilePath: /KOB/web/src/views/user/bots/UserBotsIndexView.vue
@@ -150,12 +150,13 @@
 </template>
 
 <script>
-import { ref, reactive } from 'vue';
-import $ from 'jquery';
-import { useStore } from 'vuex';
-import { Modal } from 'bootstrap/dist/js/bootstrap';
+import { ref, reactive } from 'vue'
+import $ from 'jquery'
+import { useStore } from 'vuex'
+import { Modal } from 'bootstrap/dist/js/bootstrap'
 import { VAceEditor } from 'vue3-ace-editor';
 import ace from 'ace-builds';
+
 import 'ace-builds/src-noconflict/mode-c_cpp';
 import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-chrome';
@@ -243,7 +244,7 @@ export default {
                 success(resp) {
                     console.log(resp);
                     if (resp.error_message === "success") {
-                        Modal.getInstance('#update-bot-modal-' + bot.id).hide(1);
+                        Modal.getInstance('#update-bot-modal-' + bot.id).hide();
                         refresh_bots();
                     } else {
                         botadd.error_message = resp.error_message;

@@ -1,0 +1,40 @@
+/*
+ * @Author: your name
+ * @Date: 2024-07-30 21:03:30
+ * @LastEditTime: 2024-07-31 00:28:33
+ * @LastEditors: momo.local
+ * @Description: In User Settings Edit
+ * @FilePath: /web/src/store/pk.js
+ */
+
+//user.js use to store user's information;
+export default {
+    state: {
+        status: "matching",  // matching，playing
+        socket: null,
+        opponent_username: "",
+        opponent_photo: "",
+        gamemap: null,
+    },
+    getters: {
+    },
+    mutations: {
+        updateSocket(state, socket) {
+            state.socket = socket;
+        },
+        updateOpponent(state, opponent) {
+            state.opponent_username = opponent.username;
+            state.opponent_photo = opponent.photo;
+        },
+        updateStatus(state, status) {
+            state.status = status;
+        },
+        updateGamemap(state, gamemap) {
+            state.gamemap = gamemap;
+        }
+    },
+    actions: {
+    },
+    modules: {
+    }
+}
