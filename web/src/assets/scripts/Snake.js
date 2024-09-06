@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2024-07-17 19:07:23
- * @LastEditTime: 2024-07-17 20:35:21
- * @LastEditors: momo.local
+ * @LastEditTime: 2024-09-06 12:57:44
+ * @LastEditors: MacBookPro
  * @Description: In User Settings Edit
  * @FilePath: /KOB/web/src/assets/scripts/Snake.js
  */
@@ -73,10 +73,11 @@ export class Snake extends AcGameObject {
         for (let i = k; i > 0; i -- ) {
             this.cells[i] = JSON.parse(JSON.stringify(this.cells[i - 1]));
         }
-
+        
+        /* 后端判断
         if (!this.gamemap.check_valid(this.next_cell)) {  // 下一步操作撞了，蛇瞬间去世
             this.status = "die";
-        }
+        }*/
     }
 
     update_move() {
